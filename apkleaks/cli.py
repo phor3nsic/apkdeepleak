@@ -30,7 +30,7 @@ def header():
 
 CURRENT_VERSION
 Scanning APK file for URIs, endpoints & secrets
-(c) 2020-2021, dwisiswant0 updated by phor3nsic
+(c) 2020-2023, dwisiswant0 updated by phor3nsic
 """
  
 	print(col.HEADER + banner.replace('CURRENT_VERSION', VERSION) + col.ENDC, file=sys.stderr)

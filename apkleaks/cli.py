@@ -10,11 +10,30 @@ from apkleaks.apkleaks import APKLeaks
 from apkleaks.colors import color as col
 
 def header():
+
 	try:
 		VERSION = "v" + pkg_resources.require("apkleaks")[0].version
 	except Exception:
 		VERSION = open(os.path.join(str(Path(__file__).parent.parent), "VERSION"), "r").read().strip()
-	print(col.HEADER + "     _    ____  _  ___               _        \n    / \\  |  _ \\| |/ / |    ___  __ _| | _____ \n   / _ \\ | |_) | ' /| |   / _ \\/ _` | |/ / __|\n  / ___ \\|  __/| . \\| |__|  __/ (_| |   <\\__ \\\n /_/   \\_\\_|   |_|\\_\\_____\\___|\\__,_|_|\\_\\___/\n {}\n --\n Scanning APK file for URIs, endpoints & secrets\n (c) 2020-2021, dwisiswant0\n".format(VERSION) + col.ENDC, file=sys.stderr)
+	
+	banner = """
+ 
+                 (                   )                
+               ) )\ )      (      ( /( (              
+    )       ( /((()/( (    )\     )\()))\ )  (        
+ ( /( `  )  )\())/(_)))\((((_)( |((_)\(()/( ))\`  )   
+ )(_))/(/( ((_)\(_)) ((_))\ _ )\|_ ((_)((_))((_)(/(   
+((_)_((_)_\| |(_) |  | __(_)_\(_) |/ / _| (_))((_)_\  
+/ _` | '_ \) / /| |__| _| / _ \   ' </ _` / -_) '_ \) 
+\__,_| .__/|_\_\|____|___/_/ \_\ _|\_\__,_\___| .__/  
+     |_|                                      |_|     
+
+CURRENT_VERSION
+Scanning APK file for URIs, endpoints & secrets
+(c) 2020-2021, dwisiswant0 updated by phor3nsic
+"""
+ 
+	print(col.HEADER + banner.replace('CURRENT_VERSION', VERSION) + col.ENDC, file=sys.stderr)
 
 def argument():
 	parser = argparse.ArgumentParser()

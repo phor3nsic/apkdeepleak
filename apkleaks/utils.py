@@ -29,3 +29,15 @@ class util:
 					except Exception:
 						pass
 		return sorted(list(set(found)))
+
+	@staticmethod
+	def check_assets(path):
+		
+		found = []
+		for fp, _, files in os.walk(path):
+			for fn in files:
+				filepath = os.path.join(fp, fn)
+				if '/resources/assets' in filepath and filepath.endswith('.json'):
+							found.append(filepath)
+
+		return sorted(list(set(found)))

@@ -89,12 +89,14 @@ class APKLeaks:
 	def decompile(self):
 		util.writeln("** Decompiling APK...", col.OKBLUE)
 		args = [self.jadx, self.file, "-d", self.tempdir]
+		
 		try:
 			args.extend(re.split(r"\s|=", self.disarg))
 		except Exception:
 			pass
 		comm = "%s" % (" ".join(quote(arg) for arg in args))
 		comm = comm.replace("\'","\"")
+		comm = comm + ' 2>/dev/null'
 		os.system(comm)
 
 	def extract(self, name, matches):
@@ -120,6 +122,13 @@ class APKLeaks:
 		util.writeln("\n** Scanning against '%s'" % (self.apk.package), col.OKBLUE)
 		self.out_json["package"] = self.apk.package
 		self.out_json["results"] = []
+  
+		jsonfiles = util.check_assets(self.tempdir)
+		if len(jsonfiles) > 0:
+			util.writeln("[!] Json files found in /resources/assets/", col.WARNING)
+			for jsonfile in jsonfiles:
+				print('- ' + jsonfile)
+   
 		with open(self.pattern) as regexes:
 			regex = json.load(regexes)
 			for name, pattern in regex.items():

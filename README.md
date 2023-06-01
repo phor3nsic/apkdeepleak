@@ -1,15 +1,13 @@
-# APKLeaks
-[![version](https://badge.fury.io/gh/dwisiswant0%2fapkleaks.svg)](https://badge.fury.io/gh/dwisiswant0%2fapkleaks.svg)
-[![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/dwisiswant0/apkleaks/issues)
+# apkDeepLeaks
+[![version](https://badge.fury.io/gh/phor3nsic%2fapkdeepleaks.svg)](https://badge.fury.io/gh/phor3nsic%2fapkdeepleaks.svg)
+[![contributions](https://img.shields.io/badge/contributions-welcome-brightgreen.svg?style=flat)](https://github.com/phor3nsic/apkdeepleaks/issues)
 
 Scanning APK file for URIs, endpoints & secrets.
 
-<img src="https://user-images.githubusercontent.com/25837540/111927529-a4ade080-8ae3-11eb-800a-b764ab1242e1.jpg" alt="APKLeaks">
+<img src="resources/carbon.png" alt="apkDeepleaks">
 
 - [Installation](#installation)
-  - [from Pypi](#from-pypi)
   - [from Source](#from-source)
-  - [from Docker](#from-docker)
 - [Usage](#usage)
   - [Options](#options)
     - [Output](#output)
@@ -22,46 +20,29 @@ Scanning APK file for URIs, endpoints & secrets.
 
 ## Installation
 
-It's fairly simple to install **APKLeaks**:
-
-### from PyPi
-
-```bash
-$ pip3 install apkleaks
-```
+It's fairly simple to install **apkDeepleaks**:
 
 ### from Source
 
 Clone repository and install requirements:
 
 ```bash
-$ git clone https://github.com/dwisiswant0/apkleaks
-$ cd apkleaks/
+$ git clone https://github.com/phor3nsic/apkdeepleak
+$ cd apkdeepleak/
 $ pip3 install -r requirements.txt
-```
-
-### from Docker
-
-Pull the Docker image by running:
-
-```bash
-$ docker pull dwisiswant0/apkleaks:latest
 ```
 
 ### Dependencies
 
-The APKLeaks utilizes the [jadx](https://github.com/skylot/jadx) disassembler to decompile APK files. If jadx is not present in your system, it will prompt you to download it.
+The apkDeepleaks utilizes the [jadx](https://github.com/skylot/jadx) disassembler to decompile APK files. If jadx is not present in your system, it will prompt you to download it.
 
 ## Usage
 
 Simply,
 
 ```bash
-$ apkleaks -f ~/path/to/file.apk
 # from Source
 $ python3 apkleaks.py -f ~/path/to/file.apk
-# or with Docker
-$ docker run -it --rm -v /tmp:/tmp dwisiswant0/apkleaks:latest -f /tmp/file.apk
 ```
 
 ## Options
